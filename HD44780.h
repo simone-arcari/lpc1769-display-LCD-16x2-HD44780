@@ -60,20 +60,20 @@
 
 
 /* NORMAL DISPLAY IN 4BIT MODE */
-void lcd_pin(int,int,int,int,int,int,int,pin_port,pin_port,pin_port,pin_port,pin_port,pin_port,pin_port);	// LCD pin declaration function
-void init_LCD(void);        					// LCD initializing function
-void clear_line(void);							// function to clear data lines
-void toggle(void);      						// latching function of LCD
-void sendUpperByte(char);						// masking higher 4 bits and sending to LCD
-void sendLowerByte(char);						// masking lower 4 bits and sending to LCD
-void putCommand_hf(char);   					// function to send half byte command to LCD
-void putCommand(char);							// function to send Command to LCD
-void writeByte(char);							// function to send data to LCD
-void writeString(unsigned char LineOfCharacters[TOTAL_CHARACTERS_OF_LCD],char);	    	// function to send string to LCD
-void writeNumber(int);							// function to send number to LCD
-void lcd_lef_sh(void); 							// left shifting function
-void lcd_rig_sh(void);  						// right shifting function
-void setCursor(unsigned char,unsigned char);	// function to select the position of cursor
+void lcd_pin(int,int,int,int,int,int,int,pin_port,pin_port,pin_port,pin_port,pin_port,pin_port,pin_port);  // LCD pin declaration function
+void init_LCD(void);        					                                           // LCD initializing function
+void clear_line(void);							                                             // function to clear data lines
+void toggle(void);      						                                             // latching function of LCD
+void sendUpperByte(char);						                                             // masking higher 4 bits and sending to LCD
+void sendLowerByte(char);						                                             // masking lower 4 bits and sending to LCD
+void putCommand_hf(char);   					                                           // function to send half byte command to LCD
+void putCommand(char);							                                             // function to send Command to LCD
+void writeByte(char);							                                               // function to send data to LCD
+void writeString(unsigned char LineOfCharacters[TOTAL_CHARACTERS_OF_LCD],char);	 // function to send string to LCD
+void writeNumber(int);							                                             // function to send number to LCD
+void lcd_lef_sh(void); 							                                             // left shifting function
+void lcd_rig_sh(void);  						                                             // right shifting function
+void setCursor(unsigned char,unsigned char);	                                   // function to select the position of cursor
 
 
 #endif /* __HD44780_H*/
