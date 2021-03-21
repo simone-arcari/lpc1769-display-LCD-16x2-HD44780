@@ -71,15 +71,15 @@ void init_LCD(void) {
 	pinMode(DataLine6, OUTPUT, d6_Port);
 	pinMode(DataLine7, OUTPUT, d7_Port);
 
-	putCommand_hf(0x30);						// sequence for initialization
-	putCommand_hf(0x30);    					// ----
-	putCommand_hf(0x20);    					// ----
+	putCommand_hf(0x30);			// sequence for initialization
+	putCommand_hf(0x30);    		// ----
+	putCommand_hf(0x20);    		// ----
 
-	putCommand(FOUR_BIT_TWO_LINE_5x8_CMD);		// selecting 16 x 2 LCD in 4bit mode with 5x7 pixels
+	putCommand(FOUR_BIT_TWO_LINE_5x8_CMD);	// selecting 16 x 2 LCD in 4bit mode with 5x7 pixels
     putCommand(DISP_ON_CUR_OFF_BLINK_OFF_CMD);	// display ON cursor OFF blinking OFF
     putCommand(DISPLAY_CLEAR_CMD);          	// clear display
     putCommand(ENTRY_MODE_INC_NO_SHIFT_CMD);    // cursor auto increment
-    putCommand(0x80);          					// 1st line 1st location of LCD 0 offset 80h
+    putCommand(0x80);          			// 1st line 1st location of LCD 0 offset 80h
 }
 
 void clear_line(void) {
@@ -181,9 +181,9 @@ void putCommand_hf(char data_to_LCD) {
  *    [in] data_to_LCD - byte to be sent to the LCD
  *
  ****************************************************************************/
-    digitalWrite(RegisterSelect, LOW, rs_Port); 	// selecting register as Command register
-    digitalWrite(ReadWrite, LOW, rw_Port);			// selecting write mode
-    clear_line();              						// clearing the 4 bits data line
+    digitalWrite(RegisterSelect, LOW, rs_Port);	 // selecting register as Command register
+    digitalWrite(ReadWrite, LOW, rw_Port);	 // selecting write mode
+    clear_line();              			 // clearing the 4 bits data line
     sendUpperByte(data_to_LCD);
 
     toggle();
@@ -199,14 +199,14 @@ void putCommand(char data_to_LCD) {
  *    [in] data_to_LCD - byte to be sent to the LCD
  *
  ****************************************************************************/
-    digitalWrite(RegisterSelect, LOW, rs_Port);		// selecting register as command register
-    digitalWrite(ReadWrite, LOW, rw_Port);			// selecting write mode
-    clear_line();                    				// clearing the 4 bits data line
+    digitalWrite(RegisterSelect, LOW, rs_Port);	 // selecting register as command register
+    digitalWrite(ReadWrite, LOW, rw_Port);	 // selecting write mode
+    clear_line();                    		 // clearing the 4 bits data line
     sendUpperByte(data_to_LCD);
 
     toggle();
 
-    clear_line();                    				// clearing the 4 bits data line
+    clear_line();                    		// clearing the 4 bits data line
     sendLowerByte(data_to_LCD);
 
     toggle();
@@ -222,14 +222,14 @@ void writeByte(char data_to_LCD) {
  *    [in] data_to_LCD - byte to be sent to the LCD
  *
  ****************************************************************************/
-    digitalWrite(RegisterSelect, HIGH, rs_Port);	// selecting register as data register
-    digitalWrite(ReadWrite, LOW, rw_Port);			// selecting write mode
-    clear_line();                      				// clearing the 4 bits data line
+    digitalWrite(RegisterSelect, HIGH, rs_Port);  // selecting register as data register
+    digitalWrite(ReadWrite, LOW, rw_Port);	  // selecting write mode
+    clear_line();                      		  // clearing the 4 bits data line
     sendUpperByte(data_to_LCD);
 
     toggle();
 
-    clear_line();                       			// clearing the 4 bits data line
+    clear_line();                       	  // clearing the 4 bits data line
     sendLowerByte(data_to_LCD);
 
     toggle();
@@ -279,7 +279,7 @@ void writeNumber(int number) {
     }
 
     if(index == 0) {
-        writeByte(NUM_TO_CODE(0)); 	// print number zero
+        writeByte(NUM_TO_CODE(0));  // print number zero
     }else {
         /* array inversion algorithm */
         int cycle;
@@ -305,7 +305,7 @@ void lcd_rig_sh(void) {
  *    to the right of a box
  *
  ****************************************************************************/
-	putCommand(DISPLAY_MOVE_SHIFT_RIGHT_CMD);      // command for right shift
+	putCommand(DISPLAY_MOVE_SHIFT_RIGHT_CMD);  // command for right shift
 	delayMs(100);
 }
 
@@ -317,7 +317,7 @@ void lcd_lef_sh(void) {
  *    to the left of a box
  *
  ****************************************************************************/
-	putCommand(DISPLAY_MOVE_SHIFT_LEFT_CMD);      // command for left shift
+	putCommand(DISPLAY_MOVE_SHIFT_LEFT_CMD);  // command for left shift
     delayMs(100);
 }
 
