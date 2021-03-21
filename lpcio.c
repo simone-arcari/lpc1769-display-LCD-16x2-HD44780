@@ -140,14 +140,14 @@ void delayMs(unsigned short delayInMs) {
  *    [in] delayInMs - the number of milliseconds to delay
  *
  ****************************************************************************/
-	TIMER1_TCR = 0x02;            					// stop and reset timer
-	TIMER1_PR  = 0x00;            					// set prescaler to zero
-	TIMER1_MR0 = (CORE_CLK/4) / 1000 * delayInMs;   // load MR0 with the time to delay
-	TIMER1_IR  = 0xff;            					// reset all interrupt flags
-	TIMER1_MCR = 0x04;            					// stop timer on match
-	TIMER1_TCR = 0x01;            					// start timer
+    TIMER1_TCR = 0x02;            		   // stop and reset timer
+    TIMER1_PR  = 0x00;            		   // set prescaler to zero
+    TIMER1_MR0 = (CORE_CLK/4) / 1000 * delayInMs;  // load MR0 with the time to delay
+    TIMER1_IR  = 0xff;            		   // reset all interrupt flags
+    TIMER1_MCR = 0x04;            		   // stop timer on match
+    TIMER1_TCR = 0x01;            		   // start timer
 
-    while (TIMER1_TCR & 0x01);	 					//wait until delay time has elapsed
+    while (TIMER1_TCR & 0x01);	 		   // wait until delay time has elapsed
 }
 
 void delayUs(unsigned short delayInUs) {
@@ -162,12 +162,12 @@ void delayUs(unsigned short delayInUs) {
  *    [in] delayInUs - the number of microseconds to delay
  *
  ****************************************************************************/
-	TIMER1_TCR = 0x02;          						//stop and reset timer
-	TIMER1_PR  = 0x00;          						//set prescaler to zero
-	TIMER1_MR0 = (CORE_CLK/4) / 1000000 * delayInUs;    // load MR0 with the time to delay
-	TIMER1_IR  = 0xFF;          						//reset all interrupt flags
-	TIMER1_MCR = 0x04;          						//stop timer on match
-	TIMER1_TCR = 0x01;          						//start timer
+    TIMER1_TCR = 0x02;          		      // stop and reset timer
+    TIMER1_PR  = 0x00;          		      // set prescaler to zero
+    TIMER1_MR0 = (CORE_CLK/4) / 1000000 * delayInUs;  // load MR0 with the time to delay
+    TIMER1_IR  = 0xFF;          		      // reset all interrupt flags
+    TIMER1_MCR = 0x04;          		      // stop timer on match
+    TIMER1_TCR = 0x01;          		      // start timer
 
-	while (TIMER1_TCR & 0x01);	 						//wait until delay time has elapsed
+    while (TIMER1_TCR & 0x01);	 		      // wait until delay time has elapsed
 }
